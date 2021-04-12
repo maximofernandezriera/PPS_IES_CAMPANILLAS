@@ -1,6 +1,12 @@
 <?php 
 //Start Session
-session_start();
+// Implementación de seguridad en las cookies
+session_start([
+    'cookie_secure' => true,
+    'cookie_lifetime' => 86400,
+    'cookie_samesite' => 'Strict',
+    'cookie_httponly' => true,
+    ]);
 
 //Include Configuration
 require_once('config/config.php');
