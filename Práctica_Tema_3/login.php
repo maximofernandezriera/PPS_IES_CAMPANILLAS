@@ -1,20 +1,22 @@
 <?php include('core/init.php'); ?>
 <?php
-    if(isset($_POST['do_login'])){
-        //get username and password
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+    // Anti CSRF establecido
+    if (!empty($_POST['token'])) {
+        if (hash_equals($_SESSION['token'], $_POST['token'])) {
+            
+            //get username and password
+            $username = $_POST['username'];
+            $password = $_POST['password'];
         
-        //Create user object
-        $user = new User;
+            //Create user object
+            $user = new User;
         
-        if($user->login($username, $password)){
-            redirect('index.php','You have been logged in.', 'success');
+            if($user->login($username, $password)){
+                redirect('index.php','You have been logged in.', 'success');
+            } else {
+                redirect('index.php','Invalid login', 'error');
+            }
         } else {
-            redirect('index.php','Invalid login', 'error');
+            redirect('index.php');
         }
-    } else {
-        redirect('index.php');
     }
-
-?>
