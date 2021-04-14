@@ -553,7 +553,8 @@ $PHPshVersion = '1.0.1';
 			$fullpath = $this->currentDir() . "/$fname";
 			if (!  is_readable($fullpath))
 			{
-				print "Unable to read $fullpath";
+				$safeFullpath = htmlspecialchars($fullpath)
+				print "Unable to read $safeFullpath";
 				return;
 			}
 			
