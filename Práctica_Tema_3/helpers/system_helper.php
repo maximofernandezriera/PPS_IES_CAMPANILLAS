@@ -22,7 +22,7 @@ function redirect($page=FALSE, $message=NULL, $message_type=NULL){
     
     //Redirect
     header('Location: '.$location);
-    exit();
+    die();
 }
 
 //Display Message
