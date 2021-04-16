@@ -13,7 +13,7 @@
                             </div>
                             <br />
                             <form role="form" method="post" action="logout.php">
-                                <input name="anticsrf" type="hidden" value="<?php echo $_SESSION['token']; ?>">
+                                <input name="anticsrfout" type="hidden" value="<?php echo $_SESSION['token']; ?>">
                                 <input type="submit" name="do_logout" class="btn btn-default" value="Log Out" />
                             </form>
                         <?php else : ?>

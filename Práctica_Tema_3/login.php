@@ -1,8 +1,8 @@
 <?php include('core/init.php'); ?>
 <?php
     // Anti CSRF establecido
-    if (!empty($_POST['token'])) {
-        if (hash_equals($_SESSION['token'], $_POST['token'])) {
+    if (!empty($_POST['anticsrf'])) {
+        if (hash_equals($_SESSION['token'], $_POST['anticsrf'])) {
             
             //get username and password
             $username = $_POST['username'];
