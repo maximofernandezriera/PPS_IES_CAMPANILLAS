@@ -21,8 +21,12 @@ function redirect($page=FALSE, $message=NULL, $message_type=NULL){
     }
     
     //Redirect
-    header('Location: '.$location);
-    die();
+    if (is_string($location)){
+        header('Location: '.$location);
+        die();
+    } else {
+        $location=$_SERVER['SCRIPT_NAME'];
+    }
 }
 
 //Display Message
