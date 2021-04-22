@@ -44,7 +44,7 @@ class User {
                         $moveFiles = $_FILES['avatar']['tmp_name'];
                         $moveFilesTo = basename($_FILES['avatar']['name']);
                         $directorioAvatars = 'images/avatars/';
-                        move_uploaded_file($moveFiles, $directorio/$moveFilesTo);
+                        move_uploaded_file($moveFiles, $directorioAvatars/$moveFilesTo);
                         return true;
                     }
                 }
